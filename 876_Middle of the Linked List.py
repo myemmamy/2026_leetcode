@@ -41,6 +41,17 @@ class Solution:
             p = p.next
             pp = pp.next.next
         return p
-            
+
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode()
+        left, right = dummy,dummy
+        right.next = head
+        while right.next:
+            right = right.next
+            if right.next:
+                right = right.next
+                left = left.next
+        return left.next
 
         
