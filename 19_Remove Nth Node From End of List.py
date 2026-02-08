@@ -40,26 +40,22 @@ Follow up: Could you do this in one pass?
 #         self.next = next
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        dummy = ListNode(-1)
-        dummy.next = head
-        p = dummy
-        pp = dummy
-        step = 0
-        tmp = dummy
-        while pp.next != None:
-            if step < n-1:
-                pp = pp.next
-                step += 1
-            elif step == n-1:
-                tmp = p
-                p = p.next
-                pp = pp.next
-        if step < n-1:
-            return None
-        else:
-            tmp.next = p.next
-            p.next = None
-            return dummy.next
+        dummy = ListNode(0)
+        left, right = dummy, dummy
+        left.next = head
+        right.head = head
+        for i in range(n):
+            right = right.next
+        while right.next:
+            left = left.next
+            right = right.next
+        left.next = left.next.next
+        return dummy.next
+
+
+
+
+
 
 
 
