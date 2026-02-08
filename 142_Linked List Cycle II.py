@@ -60,4 +60,26 @@ class Solution:
                     pp = pp.next
                 return p
         return None
+
+
+
+class Solution:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow, fast = head,head
+        if not fast or not fast.next:
+            return None
+        newfast = None
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                newfast = slow
+                break
+        if not newfast:
+            return None
+        newslow = head
+        while newslow != newfast:
+            newslow = newslow.next
+            newfast = newfast.next
+        return newslow
         
