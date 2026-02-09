@@ -63,3 +63,17 @@ class Solution:
                 k += 1
                 left += 1
         return k
+
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        left = 0
+        for right in range(len(nums)):
+            if left == right:
+                continue
+            if nums[right] != nums[left]:
+                left += 1
+                tmp = nums[left]
+                nums[left] = nums[right]
+                nums[right] = tmp
+        return left + 1
