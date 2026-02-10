@@ -52,6 +52,8 @@ Constraints:
 0 <= val <= 100
 '''
 
+# first item may be removed, start with left = -1
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         left,right = -1,0
