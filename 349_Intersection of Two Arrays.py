@@ -4,7 +4,7 @@ class Solution:
         nums2.sort()
         nums1,nums2 = (nums2,nums1) if len(nums2) > len(nums1) else (nums1,nums2)
         res = []
-        oldt,left = -1, -1
+        oldt = -1
         for i in range(len(nums2)):
             t = nums2[i]
             if t == oldt:
