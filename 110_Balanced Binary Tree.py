@@ -52,5 +52,21 @@ class Solution:
                 
         
             
-       
             
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def dfs(node):
+            if not node:
+                return 0
+            ld = dfs(node.left)
+            if ld == -1:
+                return -1
+            rd = dfs(node.right)
+            if rd == -1:
+                return -1
+            if abs(ld - rd) > 1 :
+                return -1
+            else:
+                return max(ld,rd) + 1
+        rs = dfs(root)
+        return False if rs == -1 else True
