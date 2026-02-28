@@ -18,3 +18,14 @@ class Solution:
                 else:
                     stack.append(int(operand2/operand1))
         return stack[-1]
+
+
+===========================================================
+use lambda to simplify calculation
+        operations = {
+            '+': lambda x, y: x + y, 
+            '*': lambda x, y: x * y, 
+            '-': lambda x, y: x - y, 
+            '/': lambda x, y: int(x / y)
+        }
+
