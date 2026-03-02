@@ -19,3 +19,20 @@ class Solution:
             path.pop()
         helper(root,[])
         return sum(paths)
+
+
+class Solution:
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        paths = []
+        def dfs(node,pathVal):
+            if not node:
+                return 
+            newval = pathVal*10 + node.val
+            if not node.left and not node.right:
+                paths.append(newval)
+            if node.left:
+                dfs(node.left,newval)
+            if node.right:
+                dfs(node.right,newval)
+        dfs(root,0)
+        return sum(paths)
