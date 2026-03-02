@@ -20,3 +20,22 @@ class Solution:
             path.pop()
         helper(root,[],0)
         return paths
+
+# 没有做路径path 回溯，而是用了新的path 变量 ，不会污染后续操作
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        paths = []
+        def dfs(node,path):
+            if not node:
+                return
+            new_path = path + [node.val]
+            if not node.left and not node.right:
+                if node.val == targetSum - sum(path):
+                    paths.append(new_path)
+                    return
+            if node.left:
+                dfs(node.left,new_path)
+            if node.right:
+                dfs(node.right,new_path])
+        dfs(root,[])
+        return paths
