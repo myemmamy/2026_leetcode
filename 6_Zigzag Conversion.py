@@ -3,14 +3,6 @@ class Solution:
         rows = [''] * numRows
         if numRows == 1:
             return s
-        if numRows == 2:
-            for i in range(len(s)):
-                if i%2 == 0:
-                    rows[0] += s[i]
-                else:
-                    rows[1] += s[i]
-            return ''.join(rows)
-        
         for i in range(len(s)):
             if i%(numRows-1) == 0 and i/(numRows-1)%2 == 0:
                 rows[0] += s[i]
