@@ -52,3 +52,13 @@ class Solution:
                 right -= 1
             else:
                 left += 1
+#0304
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        d = {}
+        for i,c in enumerate(numbers):
+            m = target - c
+            if m in d:
+                return d[m]+1,i+1
+            else:
+                d[c] = i
