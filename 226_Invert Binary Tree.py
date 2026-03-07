@@ -12,3 +12,18 @@ class Solution:
             node.left = tmp
             return node
         return dfs(root)
+
+#2
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return 
+        if root.left:
+            self.invertTree(root.left)
+        if root.right:
+            self.invertTree(root.right)
+        tmp = root.right
+        root.right = root.left
+        root.left = tmp
+        return root
+
