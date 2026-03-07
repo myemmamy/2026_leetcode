@@ -49,3 +49,15 @@ class Solution:
                     return helper(n1.left,n2.right)  and helper(n1.right,n2.left)
         return helper(root.left,root.right)
         
+#2
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        def dfs(p,q):
+            if not p and not q:
+                return True
+            if (p and not q) or (not p and q):
+                return False
+            if p.val != q.val:
+                return False
+            return dfs(p.left,q.right) and dfs(p.right,q.left)
+        return dfs(root.right,root.left)
