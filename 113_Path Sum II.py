@@ -36,7 +36,7 @@ class Solution:
             if node.left:
                 dfs(node.left,new_path)
             if node.right:
-                dfs(node.right,new_path])
+                dfs(node.right,new_path)
         dfs(root,[])
         return paths
 #0315
