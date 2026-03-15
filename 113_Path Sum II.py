@@ -17,7 +17,7 @@ class Solution:
                     paths.append(path.copy())
             helper(node.left, path, tmpSum)
             helper(node.right, path, tmpSum)
-            path.pop()
+            path.pop() #只pop一次，而不是左右子树各pop一次，因为一层做了一次append，也只做一次pop。 左子树自己会pop自己的节点，右子树也会pop自己的节点
         helper(root,[],0)
         return paths
 
