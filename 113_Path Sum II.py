@@ -39,3 +39,24 @@ class Solution:
                 dfs(node.right,new_path])
         dfs(root,[])
         return paths
+#0315
+
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        ans = []
+        path = []
+        total = 0
+        def dfs(node,subtotal):
+            if not node:
+                return
+            subtotal += node.val
+            path.append(node.val)
+            if not node.left and not node.right:
+                if subtotal == targetSum:
+                    ans.append(path[:])
+            dfs(node.left,subtotal)
+            
+            dfs(node.right,subtotal)
+            path.pop()
+        dfs(root,0)
+        return ans
